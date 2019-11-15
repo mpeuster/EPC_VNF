@@ -9,6 +9,10 @@ virtual_deployment_units:
   - id: vdu01
     vm_image: aahad91/test-vnf
     vm_image_format: docker
+    # IPC: https://docs.docker.com/engine/reference/run/#ipc-settings---ipc
+    ipc_mode: "shareable"  # share IPC // for the UE container this should be "container:mn.vnf3.vdu01.0"
+    # Devices: https://docker-py.readthedocs.io/en/2.0.2/api.html#docker.api.container.ContainerApiMixin.create_host_config
+    devices: ["/dev/net/tun"]  # list of device strings
     resource_requirements:
       cpu:
         vcpus: 1
