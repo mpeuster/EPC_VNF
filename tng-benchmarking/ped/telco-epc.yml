@@ -36,6 +36,7 @@ service_experiments:
         address: "192.168.50.10/24"
         ipc_mode: "container:mn.vnf3.vdu01.0"
         devices: ["/dev/net/tun"]
+        cap_add: ["SYS_ADMIN", "NET_ADMIN"]  # cap_add must be list of string (if present)
 #      - name: "mp.output"
 #        connection_point:
 #        container: " "

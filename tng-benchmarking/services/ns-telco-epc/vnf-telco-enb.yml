@@ -10,6 +10,8 @@ virtual_deployment_units:
     vm_image: aahad91/testimage
     vm_image_format: docker
     ipc_mode: "shareable"
+    # cap_add must be list of string or null
+    cap_add: ["SYS_ADMIN", "NET_ADMIN"]
     resource_requirements:
       cpu:
         vcpus: 1
